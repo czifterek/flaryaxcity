@@ -9,13 +9,13 @@ Config.Start = {
         model = 'csb_agent',
         anim = {}
     },
-    coords = vector4(1150.8447, 2388.9236, 57.8078, 31.6073),
+    coords = vector4(26.91, -626.45, 14.51),
     radius = 0.35,
     drawSprite = true,
-    label = 'Take Job',
+    label = 'weź zlecenie',
     icon = 'fa-solid fa-comments',
-    jobsLimit = 3,
-    timeRestrict = {18, 6}, -- from 6 pm to 6 am, set to false to turn off
+    jobsLimit = 4,
+    timeRestrict = false, -- from 6 pm to 6 am, set to false to turn off
     policeCount = 0,
     policeAlert = false, -- true / false
     alertDelay = 2000, -- alert will trigger after 2 seconds from spawning crate
@@ -48,7 +48,7 @@ Config.Start = {
             })
         end
     end,
-    flareTime = 30, -- 30 minutes
+    flareTime = 45, -- 30 minutes
     flareRadius = 300.0,
     radiusColor = 1,
     radiusAlpha = 180,
@@ -56,14 +56,14 @@ Config.Start = {
     requiredItems = {
         ['lockpick'] = 0.1 -- set to 1 to remove item, or float to remove durability from item
     },
-    removeType = 1, -- 1 = remove every try, 2 = remove only on success
+    removeType = 2, -- 1 = remove every try, 2 = remove only on success
     flareBlip = {
         sprite = 514,
         scale = 0.9,
         color = 1,
         priority = 5,
-        shortRange = true,
-        name = 'Air Drop'
+        shortRange = false,
+        name = 'Zrzut'
     }
 }
 
@@ -72,7 +72,7 @@ Config.PoliceJobs = {
 }
 
 Config.BoxModels = {
-    'tr_prop_tr_adv_case_01a', 'ex_prop_adv_case', 'ex_prop_adv_case_sm', 'ex_prop_adv_case_sm_flash'
+    'prop_box_wood05a'
 }
 
 Config.SearchAnimation = {
@@ -84,10 +84,18 @@ Config.SearchAnimation = {
 
 Config.Points = {
     [1] = {
-        flareCoords = vector3(1542.6046, 2322.7439, 71.0847),
+        flareCoords = vector3(268.1, 2866.57, 76.93),
         boxCoords = { -- script will select 1 from these coords
-            vector3(1537.2036, 2325.2351, 70.8695),
-            vector3(1544.0769, 2328.3494, 70.9651)
+            vector3(268.1, 2866.57, 76.93),
+            vector3(314.97, 2891.97, 46.25
+            vector3(283.36, 2821.73, 44.34)
+            vector3(290.83, 2815.74, 45.91)
+            vector3(319.19, 2883.33, 46.49)
+            vector3(301.13, 2865.59, 44.17)
+            vector3(261.84, 2859.71, 43.81)
+            vector3(325.39, 2884.01, 46.05)
+            vector3(259.32, 2873.33, 43.33)
+            vector3(294.38, 2882.15, 43.16)
         }
     }
 }
@@ -102,7 +110,11 @@ Config.Rewards = {
 }
 
 Config.LuckyRewards = {
-    {name = 'black_money', min = 10, max = 100, chance = 10}
+    {name = 'black_money', min = 700, max = 2500, chance = 10}
+    {name = 'cannabis_seed' , min = 1, max = 5, chance = 70}
+    {name = 'cannabis_seed_female' , min = 1, max = 3, chance = 40}
+    {name = 'orange_haze_seed' , min = 1, max = 5, chance = 20}
+    {name = 'amber_kush_seed' , min = 1, max = 5, chance = 20}
 }
 
 Config.GetPlayerNumber = function(identifier) -- if you dont use any phone just set it to return true
@@ -112,13 +124,13 @@ end
 Config.Messages = {
     Start = function(playerId, playerNumber)
         exports['piotreq_phone']:SendMessage({
-            sender = 'Mario',
+            sender = 'Santiago',
             receiver = playerNumber,
-            content = 'You receive location on your GPS.',
+            content = 'Wysłałem ci lokalizacje paki.',
             notify = {
-               title = 'Mario',
+               title = 'Santiago',
                time = 'Now',
-               text = 'You receive location on your GPS.',
+               text = 'Wysłałem ci lokalizacje paki.',
                type = 'default',
                timeout = 6000
             }
@@ -126,13 +138,13 @@ Config.Messages = {
     end,
     Finish = function(playerId, playerNumber)
         exports['piotreq_phone']:SendMessage({
-            sender = 'Mario',
+            sender = 'Santiago',
             receiver = playerNumber,
-            content = 'You finished job. Good work!',
+            content = 'Dobra robota, odzywaj się jeszcze.',
             notify = {
-               title = 'Mario',
+               title = 'Santiago',
                time = 'Now',
-               text = 'You finished job. Good work!',
+               text = 'Dobra robota, odzywaj się jeszcze.',
                type = 'default',
                timeout = 6000
             }
@@ -140,13 +152,13 @@ Config.Messages = {
     end,
     Timeout = function(playerId, playerNumber)
         exports['piotreq_phone']:SendMessage({
-            sender = 'Mario',
+            sender = 'Santiago',
             receiver = playerNumber,
-            content = 'It took you all this time to find it? dont come to me anymore...',
+            content = 'Ile ci to może zajmować?! nie przychodź więcej.',
             notify = {
-               title = 'Mario',
+               title = 'Santiago',
                time = 'Now',
-               text = 'It took you all this time to find it? dont come to me anymore...',
+               text = 'Ile ci to może zajmować?! nie przychodź więcej.',
                type = 'default',
                timeout = 6000
             }
@@ -154,13 +166,13 @@ Config.Messages = {
     end,
     Stole = function(playerId, playerNumber)
         exports['piotreq_phone']:SendMessage({
-            sender = 'Mario',
+            sender = 'Santiago',
             receiver = playerNumber,
-            content = 'You crazy, you stole a package for my worker. Keep it to yourself and come see me.',
+            content = 'Gratuluje zajebania paki, środek dla ciebie ale następnym razem przyjdź po zlecenie.',
             notify = {
-               title = 'Mario',
+               title = 'Santiago',
                time = 'Now',
-               text = 'You crazy, you stole a package for my worker. Keep it to yourself and come see me.',
+               text = 'Gratuluje zajebania paki, środek dla ciebie ale następnym razem przyjdź po zlecenie.',
                type = 'default',
                timeout = 6000
             }
@@ -168,13 +180,13 @@ Config.Messages = {
     end,
     Stolen = function(playerId, playerNumber)
         exports['piotreq_phone']:SendMessage({
-            sender = 'Mario',
+            sender = 'Santiago',
             receiver = playerNumber,
-            content = 'Your package was stolen, you idiot, dont show up here again.',
+            content = 'Gratuluje kurwa dalej się opierdolić debilu, nie pokazuj mi się lepiej na oczy',
             notify = {
-               title = 'Mario',
+               title = 'Santiago',
                time = 'Now',
-               text = 'Your package was stolen, you idiot, dont show up here again.',
+               text = 'Gratuluje kurwa dalej się opierdolić debilu, nie pokazuj mi się lepiej na oczy',
                type = 'default',
                timeout = 6000
             }
