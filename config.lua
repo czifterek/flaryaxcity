@@ -6,8 +6,8 @@ Config.Language = 'en' -- pl / en
 
 Config.Start = {
     ped = { -- delete ped to remove ped
-        model = 'csb_agent',
-        anim = {}
+        model = 'CSB_Oscar_02',
+        anim = {amb@world_human_aa_smoke@male@idle_a : idle_b}
     },
     coords = vector4(26.91, -626.45, 14.51),
     radius = 0.35,
