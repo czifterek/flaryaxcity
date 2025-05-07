@@ -1,0 +1,14 @@
+{
+    "open": "Otwórz",
+    "open_icon": "fa-solid fa-box",
+    "searching": "Przeszukiwanie...",
+    "wait": "Odczekaj chwile",
+    "wrong_hour": "Nie mam dla ciebie zlecenia, przyjdź do mnie później",
+    "you_have_job": "Masz już aktywne zlecenie",
+    "job_limit": "Nie mam dla ciebie teraz zlecenia, przyjdź do mnie później",
+    "not_enough_cops": "Policja kręci się w okolicy, przyjdź do mnie później",
+    "no_items": "Nie posiadasz wymaganych przedmiotów",
+    "start_textui": "[E] - Rozpocznij misje",
+    "search_textui": "[E] - Przeszukaj",
+    "need_phone_number": "Nie masz aktywnej karty SIM"
+}

@@ -1,0 +1,14 @@
+{
+    "open": "Open",
+    "open_icon": "fa-solid fa-box",
+    "searching": "Searching...",
+    "wait": "Wait a moment",
+    "wrong_hour": "I don't have a job for you, come back later",
+    "you_have_job": "You already have an active job",
+    "job_limit": "I don't have a job for you right now, come back later",
+    "not_enough_cops": "The police are around, come back later",
+    "no_items": "You dont have required items",
+    "start_textui": "[E] - Start Mission",
+    "search_textui": "[E] - Search Crate",
+    "need_phone_number": "You dont have active SIM Card"
+}
